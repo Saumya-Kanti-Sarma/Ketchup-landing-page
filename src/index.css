@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: 'Albert Sans';
+}
+
+:root {
+  --font-albert: 'Albert Sans';
+  --font-bebas: 'Bebas Neue';
+  --primary-red: #DA4438;
+  --secondary-red: #762921;
+  --beige: #F1E7DB;
+  --orange: #DA4438;
+  --white: #FFFF;
+  --black: #0000;
+}
