@@ -18,3 +18,38 @@
   --white: #FFFF;
   --black: #0000;
 }
+
+@layer base {
+  h1 {
+    @apply font-[var(--font-bebas)] font-extrabold text-4xl text-white
+  }
+
+  h2 {
+    @apply font-[var(--font-bebas)] font-bold text-2xl text-[var(--secondary-red)]
+  }
+
+  h3 {
+    @apply font-[var(--font-bebas)] font-bold text-2xl text-[var(--primary-red)]
+  }
+
+  p {
+    @apply font-[var(--font-albert)] text-black text-lg
+  }
+}
+
+@layer utilities {
+  .full-screen {
+    height: 100dvh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    min-width: 300px;
+    max-width: 800px;
+    min-height: 300px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    position: absolute;
+  }
+}
