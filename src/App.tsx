@@ -1,7 +1,9 @@
+import "./index.css";
+
 const App = () => {
   return (
-    <div >
-      Hii
+    <div>
+
     </div>
   )
 }
