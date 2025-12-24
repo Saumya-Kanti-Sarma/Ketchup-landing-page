@@ -5,7 +5,9 @@ import "./index.css";
 const App = () => {
   const bottleRef = useRef<HTMLImageElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
-  const rightImgsRef = useRef<(HTMLImageElement | null)[]>([]);
+  const rightImgsRef1 = useRef<(HTMLImageElement | null)>(null);
+  const rightImgsRef2 = useRef<(HTMLImageElement | null)>(null);
+  const rightImgsRef3 = useRef<(HTMLImageElement | null)>(null);
 
   useEffect(() => {
     if (!bottleRef.current || !textRef.current) return;
@@ -33,12 +35,24 @@ const App = () => {
 
       //Right images
       tl.fromTo(
-        rightImgsRef.current.filter(Boolean),
+        rightImgsRef1.current,
         { y: 80, opacity: 0, rotate: -12 },
         {
           y: 0,
           opacity: 1,
-          rotate: 0,
+          rotate: -6,
+          duration: 1,
+          stagger: 0.2,
+        },
+        "-=0.8"
+      );
+      tl.fromTo(
+        rightImgsRef2.current,
+        { y: 80, opacity: 0, rotate: -12 },
+        {
+          y: 0,
+          opacity: 1,
+          rotate: 6,
           duration: 1,
           stagger: 0.2,
         },
@@ -58,43 +72,31 @@ const App = () => {
           alt="ketchup-logo"
           className="absolute h-[100vh] left-[-300px]
                      drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]
-                     object-cover max-md:hidden"
+                     object-cover max-md:left-[-320px]"
         />
 
-        <div className="flex w-[85%] h-full justify-start items-center">
+        <div className="flex w-[85%] h-full justify-start items-center max-xl:w-[75%]">
 
           {/* Text */}
           <div className="flex-1" ref={textRef}>
-            <h1 className="text-8xl">
+            <h1 className="text-[var(--secondary-red)] text-9xl mb-10 max-lg:text-8xl max-lg:mb-5 ">HEINZ KETCHUP</h1>
+            <h1 className="text-7xl max-lg:text-4xl">
               TASTE THE FLAVOUR OF NATIVE INDIAN SPICE & FEEL THE KICK...
             </h1>
-            <h2 className="mt-10 text-7xl">
-              SPICY SINCE 1997
-            </h2>
           </div>
 
           {/* Right visuals */}
-          <div className="flex-1 relative h-full">
-            {[
-              "/hero-img02.png",
-              "/hero-img03.png",
-              "/ketchup02.png",
-            ].map((src, i) => (
-              <img
-                key={i}
-                ref={(el) => {
-                  rightImgsRef.current[i] = el;
-                }}
-                src={src}
-                alt="hero-img"
-                className={`hero-img ${i === 0
-                  ? "right-10 top-10 rotate-6 shadow-2xl"
-                  : i === 1
-                    ? "bottom-10 right-10 -rotate-6 shadow-2xl"
-                    : "left-[-40%] top-[35%] rotate-6 w-[700px] drop-shadow-2xl"
-                  }`}
-              />
-            ))}
+          <div className="flex-1 relative h-full max-xl:hidden">
+            <img
+              ref={rightImgsRef1}
+              src={"/hero-img02.png"}
+              alt="hero-img"
+              className="hero-img right-10 top-10 rotate-6 shadow-2xl max-2xl:top-[20%]" />
+            <img
+              ref={rightImgsRef2}
+              src={"/ketchup02.png"}
+              alt="hero-img"
+              className="hero-img left-[-30%] top-[48%] rotate-6 max-2xl:left-[-20%] max-2xl:top-[55%]" />
           </div>
         </div>
       </div>

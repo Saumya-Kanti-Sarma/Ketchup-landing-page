@@ -45,11 +45,17 @@
   }
 
   .hero-img {
-    min-width: 300px;
     max-width: 800px;
-    min-height: 300px;
+    width: 90%;
+    min-width: 240px;
     aspect-ratio: 1/1;
     object-fit: cover;
     position: absolute;
+  }
+
+  @media (max-width:1536px) {
+    .hero-img {
+      width: 80%;
+    }
   }
 }
